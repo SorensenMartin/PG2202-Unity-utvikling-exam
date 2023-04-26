@@ -68,7 +68,7 @@ namespace sc.terrain.proceduralpainter
                 
                 Attributes.ResolutionDropdown range = attribute as Attributes.ResolutionDropdown;
 
-                CreateOptions(range.min, range.max);
+                CreateOptions(range.min, 4096);
 
                 index = ResToIndex(property.intValue);
 
