@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 503, y: 321}
   m_MaxSize: {x: 16192, y: 12117}
   vertical: 0
-  controlID: 244
+  controlID: 3140
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 321}
   m_MaxSize: {x: 8096, y: 12117}
   vertical: 1
-  controlID: 173
+  controlID: 3110
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 174
+  controlID: 3111
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -534,9 +534,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -37.277332, y: 39.329334, z: -0.5949682}
+    m_Target: {x: -46.82688, y: 38.211338, z: -7.1723275}
     speed: 2
-    m_Value: {x: -37.277332, y: 39.329334, z: -0.5949682}
+    m_Value: {x: -46.82688, y: 38.211338, z: -7.1723275}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -583,13 +583,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.09397605, y: -0.77612185, z: 0.15071464, w: 0.60803175}
+    m_Target: {x: -0.21477336, y: -0.1240537, z: 0.0032728533, w: -0.97088987}
     speed: 2
-    m_Value: {x: 0.094712906, y: -0.774496, z: 0.15160808, w: 0.6067952}
+    m_Value: {x: -0.2128796, y: -0.12234765, z: 0.0027595588, w: -0.96938425}
   m_Size:
-    m_Target: 3.2593582
+    m_Target: 2.9726162
     speed: 2
-    m_Value: 3.119003
+    m_Value: 3.112687
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -804,22 +804,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Buildings
+    - Assets/Prefabs/Props
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Buildings
+  - Assets/Prefabs/Props
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\sande\Documents\GitHub\PG2202-Unity-utvikling-exam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d05c0000
-    m_LastClickedID: 23760
-    m_ExpandedIDs: 00000000be5c0000c05c0000c25c0000c45c0000ce5c000000ca9a3bffffff7f
+    m_SelectedIDs: f05d0000
+    m_LastClickedID: 24048
+    m_ExpandedIDs: 000000002c5d00002e5d0000305d0000325d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -847,7 +847,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be5c0000c05c0000c25c0000c45c000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000002c5d00002e5d0000305d0000325d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
