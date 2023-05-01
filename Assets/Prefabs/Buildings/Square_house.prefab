@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2177804937670675160}
   - component: {fileID: 2996799859324667261}
   - component: {fileID: 1040950340593922487}
+  - component: {fileID: 5932825739160049183}
   m_Layer: 0
   m_Name: Square_house
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5932825739160049183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545524817208512610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4276223, y: 2.7613606, z: 2.477932}
+  m_Center: {x: -0.0048319497, y: -0.3674841, z: 0.0011984507}

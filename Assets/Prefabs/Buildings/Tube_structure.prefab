@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8893000521122679237}
   - component: {fileID: 5531989681030202976}
   - component: {fileID: 7719561221627605674}
+  - component: {fileID: 4088085319883809171}
   m_Layer: 0
   m_Name: Tube_structure
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &4088085319883809171
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079906846608053119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.69055074
+  m_Height: 3.751974
+  m_Direction: 1
+  m_Center: {x: -0.000000029802317, y: 0.15758881, z: 0}
