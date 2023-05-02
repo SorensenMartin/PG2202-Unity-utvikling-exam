@@ -13,14 +13,15 @@ public class GameManager : MonoBehaviour
 	}
 
 	public GameState currentState;
-	public GameObject startScreen;
-	public Button startButton;
+	public GameObject StartScreen;	
+	public GameObject Spaceship;	
 
 	void Start()
 	{
+		Debug.Log("Start GameManager");
 		currentState = GameState.Start;
-		startScreen.SetActive(true);
-		startButton.onClick.AddListener(StartGame);
+		StartScreen.SetActive(true);
+		
 	}
 
 	void Update()
@@ -31,7 +32,10 @@ public class GameManager : MonoBehaviour
 				// Do nothing
 				break;
 			case GameState.Playing:
-				// Update game logic
+				Debug.Log("Now Playing");
+				StartScreen.SetActive(false);
+				Spaceship.SetActive(true);
+
 				break;
 			case GameState.GameOver:
 				// Show game over screen
@@ -39,16 +43,18 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void StartGame()
+	public void StartGame()
 	{
 		currentState = GameState.Playing;
-		startScreen.SetActive(false);
-		// Start the game
+		StartScreen.SetActive(false);
+		Spaceship.SetActive(true);
+		
 	}
 
 	void EndGame()
 	{
 		currentState = GameState.GameOver;
-		// End the game
+		Spaceship.SetActive(false);
+		StartScreen.SetActive(true);
 	}
 }
