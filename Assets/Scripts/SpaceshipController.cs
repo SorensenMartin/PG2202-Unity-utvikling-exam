@@ -1,68 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
-    public float speed = 10f; // Adjust this to change the ship's movement speed
-    public float rotationSpeed = 100f; // Adjust this to change the ship's rotation speed
-    public float hoverMargin = 0.5f; // Adjust this to change the ship's hover margin
-    public float hoverIncrement = 1f; // Adjust this to change the amount by which the hover height is increased/decreased
-    public float maxHoverSpeed = 5f; // Adjust this to change the maximum speed at which the hover height can change
+	public float speed = 10f; 
+	public float rotationSpeed = 100f; 
+	public float hoverMargin = 0.5f; 
+	public float hoverIncrement = 1f; 
+	public float maxHoverSpeed = 5f;
+	public Terrain EdgeTerrain;
 
-    private float hoverHeight; // The current hover height of the ship
-    private float hoverSpeed; // The current speed at which the hover height is changing
+	private float hoverHeight;
+	private float hoverSpeed; 
+	private Terrain terrain;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Disable gravity so that the ship maintains its altitude
-        GetComponent<Rigidbody>().useGravity = false;
+	
+	void Start()
+	{
+		
+		GetComponent<Rigidbody>().useGravity = false;
 
-        // Set initial hover height to the current altitude of the ship
-        hoverHeight = transform.position.y;
-    }
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, Vector3.down, out hit))
+		{
+			terrain = hit.collider.GetComponent<Terrain>();
+			hoverHeight = hit.point.y + hoverMargin;
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Update hover height based on input
-        if (Input.GetKey(KeyCode.Space))
-        {
-            hoverSpeed += hoverIncrement * Time.deltaTime;
-            hoverSpeed = Mathf.Clamp(hoverSpeed, 0f, maxHoverSpeed);
-            hoverHeight += hoverSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            hoverSpeed -= hoverIncrement * Time.deltaTime;
-            hoverSpeed = Mathf.Clamp(hoverSpeed, -maxHoverSpeed, 0f);
-            hoverHeight += hoverSpeed * Time.deltaTime;
-        }
-        else
-        {
-            hoverSpeed = 0f;
-        }
+	void Update()
+	{
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, Vector3.down, out hit))
+		{
+			float terrainHeight = hit.point.y;
+			float targetHoverHeight = terrainHeight + hoverMargin;
+			float hoverError = targetHoverHeight - hoverHeight;
+			float hoverAcceleration = hoverError * hoverIncrement;
+			hoverSpeed = Mathf.Clamp(hoverSpeed + hoverAcceleration, -maxHoverSpeed, maxHoverSpeed);
+			hoverHeight = Mathf.Clamp(hoverHeight + hoverSpeed * Time.deltaTime, terrainHeight + hoverMargin, Mathf.Infinity);
 
-        // Keep ship at hover height plus margin
-        float hoverInput = 0f;
-        if (transform.position.y > hoverHeight + hoverMargin)
-        {
-            hoverInput = -1f;
-        }
-        else if (transform.position.y < hoverHeight - hoverMargin)
-        {
-            hoverInput = 1f;
-        }
+			// Check if the terrain is the correct one
+			if (hit.collider.GetComponent<Terrain>() == EdgeTerrain)
+			{
+				hoverSpeed = 0f;
+				transform.Translate(Vector3.forward * speed * Time.deltaTime);
+				Debug.Log("Cannot move forward. Wrong terrain.");
+			}
+		}
 
-        // Move forward/backward
-        float verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * verticalInput * speed * Time.deltaTime);
+		float verticalInput = -Input.GetAxis("Vertical");
+		transform.Translate(Vector3.forward * verticalInput * speed * Time.deltaTime);
 
-        // Rotate left/right
-        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);
+		float horizontalInput = Input.GetAxis("Horizontal");
+		transform.Rotate(Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);
 
-        // Move up/down
-        float hoverVelocity = hoverInput * speed * Time.deltaTime;
-        transform.Translate(Vector3.up * hoverVelocity);
-    }
+		
+		float hoverVelocity = (hoverHeight - transform.position.y) * speed * Time.deltaTime;
+		transform.Translate(Vector3.up * hoverVelocity);
+	}
 }
