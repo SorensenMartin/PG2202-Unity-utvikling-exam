@@ -5,13 +5,7 @@ using UnityEngine;
 public class LaserProjectile : MonoBehaviour
 {
     public float lifetime = 4;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         lifetime -= Time.deltaTime;

@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
     public Transform gameCamera;
     public float cameraZoomSpeed = 2;
-
     public float maxCameraDistance = 20;
 
     private float cameraDistance = 4;
     private Vector2 cameraRotation;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        
         resetCameraRotation();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Reset camera if middle mouse button is pressed
