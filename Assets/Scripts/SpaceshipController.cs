@@ -17,10 +17,7 @@ public class SpaceshipController : MonoBehaviour
 
 	
 	void Start()
-	{
-		
-		GetComponent<Rigidbody>().useGravity = false;
-
+	{		
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit))
 		{
@@ -41,7 +38,7 @@ public class SpaceshipController : MonoBehaviour
 			hoverSpeed = Mathf.Clamp(hoverSpeed + hoverAcceleration, -maxHoverSpeed, maxHoverSpeed);
 			hoverHeight = Mathf.Clamp(hoverHeight + hoverSpeed * Time.deltaTime, terrainHeight + hoverMargin, Mathf.Infinity);
 
-			// Check if the terrain is the correct one
+			
 			if (hit.collider.GetComponent<Terrain>() == EdgeTerrain)
 			{
 				hoverSpeed = 0f;
@@ -50,8 +47,8 @@ public class SpaceshipController : MonoBehaviour
 			}
 		}
 
-		float verticalInput = -Input.GetAxis("Vertical");
-		transform.Translate(Vector3.forward * verticalInput * speed * Time.deltaTime);
+		float verticalInput = Input.GetKey(KeyCode.W) ? 1 : 0;
+		transform.Translate(Vector3.forward * verticalInput * -speed * Time.deltaTime);				
 
 		float horizontalInput = Input.GetAxis("Horizontal");
 		transform.Rotate(Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);

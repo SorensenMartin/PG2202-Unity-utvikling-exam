@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,48 +14,57 @@ public class GameManager : MonoBehaviour
 	}
 
 	public GameState currentState;
-	public GameObject StartScreen;	
-	public GameObject Spaceship;	
+	public GameObject StartScreen;
+	public GameObject EndScreen;
+	public GameObject Spaceship;
+	
 
 	void Start()
 	{
 		Debug.Log("Start GameManager");
 		currentState = GameState.Start;
 		StartScreen.SetActive(true);
-		
+		Spaceship.SetActive(false);
+		EndScreen.SetActive(false);
 	}
 
 	void Update()
 	{
 		switch (currentState)
 		{
-			case GameState.Start:
-				// Do nothing
+			case GameState.Start:				
+				
 				break;
 			case GameState.Playing:
-				Debug.Log("Now Playing");
 				StartScreen.SetActive(false);
 				Spaceship.SetActive(true);
 
 				break;
 			case GameState.GameOver:
-				// Show game over screen
+				// reset game				
+				
 				break;
 		}
 	}
 
 	public void StartGame()
 	{
+		Debug.Log("Now Playing");
 		currentState = GameState.Playing;
 		StartScreen.SetActive(false);
 		Spaceship.SetActive(true);
 		
-	}
+	}	
 
-	void EndGame()
+	public void EndGame()
 	{
 		currentState = GameState.GameOver;
 		Spaceship.SetActive(false);
-		StartScreen.SetActive(true);
+		EndScreen.SetActive(true);
+	}
+
+	public void ResetGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
