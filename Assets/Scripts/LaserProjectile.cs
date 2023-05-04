@@ -15,7 +15,8 @@ public class LaserProjectile : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collision collider) 
+    {
         Destroy(gameObject);
     }
 }

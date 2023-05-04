@@ -9,7 +9,7 @@ public class FireProjectile : MonoBehaviour
     public float fireRate = 0.4f;
     public float firstShotDelay = 0f;
 
-    public float spread = 50.0f;
+    public float spread = 100.0f;
 
     public float projectileSpeed = 4000f;
 

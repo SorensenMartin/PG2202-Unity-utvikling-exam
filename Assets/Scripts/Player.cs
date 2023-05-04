@@ -43,4 +43,10 @@ public class Player : MonoBehaviour
 			gameManager.EndGame();
 		}
 	}
+
+	void OnCollisionEnter(Collision collider)
+	{
+		ReciveDamage(1);
+		Debug.Log("Desert Rider got hit!");
+    }
 }

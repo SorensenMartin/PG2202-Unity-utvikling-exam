@@ -5,18 +5,17 @@ using UnityEngine.Animations;
 
 public class EnemyTurret : MonoBehaviour
 {
-
-    public Transform playerTarget;
-
     // How close the player can get before the turret will start to aim at them
     public float aimingDistance = 60;
 
     // How much closer the player can get from the aiming distance before the turret opens fire
     public float firingMargin = 10;
+
     private GameObject mainHousing;
     private GameObject barrelHousing;
-
     private GameObject projectileParent;
+    public Transform playerTargetTransform;
+    public ConstraintSource playerTarget;
 
     private enum State
     {
@@ -29,10 +28,19 @@ public class EnemyTurret : MonoBehaviour
 
     void Start()
     {
-        // get the barrel housing game object
+        // Find player target
+        playerTargetTransform = GameObject.FindGameObjectWithTag("PlayerTarget").transform;
+        playerTarget.sourceTransform = playerTargetTransform;
+
+        // set the different parts of the turret to variables for later use
         mainHousing = transform.GetChild(0).gameObject;
         barrelHousing = mainHousing.transform.GetChild(0).gameObject;
-        projectileParent = barrelHousing.transform.GetChild(1).gameObject;
+        projectileParent = barrelHousing.transform.GetChild(1).gameObject;        
+
+        // Set the target for the aim and look at constraints
+        playerTarget.weight = 1;
+        GetComponent<AimConstraint>().AddSource(playerTarget);
+        barrelHousing.GetComponent<LookAtConstraint>().AddSource(playerTarget);
 
         // set to idle state
         _activeState = State.Idle;
@@ -62,7 +70,7 @@ public class EnemyTurret : MonoBehaviour
 
     void _Idle()
     {
-        if (Vector3.Distance(transform.position, playerTarget.position) < aimingDistance ) {
+        if (Vector3.Distance(transform.position, playerTargetTransform.position) < aimingDistance ) {
             enterAiming();
         }
     }
@@ -80,10 +88,10 @@ public class EnemyTurret : MonoBehaviour
 
     void _Aiming()
     {
-        if (Vector3.Distance(transform.position, playerTarget.position) > aimingDistance ) 
+        if (Vector3.Distance(transform.position, playerTargetTransform.position) > aimingDistance ) 
         {
             enterAiming();
-        } else if (Vector3.Distance(transform.position, playerTarget.position) < (aimingDistance - firingMargin) ) {
+        } else if (Vector3.Distance(transform.position, playerTargetTransform.position) < (aimingDistance - firingMargin) ) {
             enterFiring();
         }
     }
@@ -99,7 +107,7 @@ public class EnemyTurret : MonoBehaviour
 
     void _Firing()
     {
-        if (Vector3.Distance(transform.position, playerTarget.position) > (aimingDistance - firingMargin) )
+        if (Vector3.Distance(transform.position, playerTargetTransform.position) > (aimingDistance - firingMargin) )
         {
             enterAiming();
         }
