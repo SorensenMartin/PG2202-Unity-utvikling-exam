@@ -16,8 +16,11 @@ public class GameManager : MonoBehaviour
 	public GameState currentState;
 	public GameObject StartScreen;
 	public GameObject EndScreen;
+	public GameObject UIOverlay;
 	public GameObject Spaceship;
-	
+	public GameObject Turrets;	
+	public Camera StartCamera;
+
 
 	void Start()
 	{
@@ -38,11 +41,14 @@ public class GameManager : MonoBehaviour
 			case GameState.Playing:
 				StartScreen.SetActive(false);
 				Spaceship.SetActive(true);
+				StartCamera.enabled = false;
 
 				break;
 			case GameState.GameOver:
-				// reset game				
-				
+				Spaceship.SetActive(false);
+				EndScreen.SetActive(true);
+				Turrets.SetActive(false);
+				UIOverlay.SetActive(false);
 				break;
 		}
 	}
@@ -53,14 +59,13 @@ public class GameManager : MonoBehaviour
 		currentState = GameState.Playing;
 		StartScreen.SetActive(false);
 		Spaceship.SetActive(true);
-		
+		Turrets.SetActive(true);
+		UIOverlay.SetActive(true);
 	}	
 
 	public void EndGame()
 	{
-		currentState = GameState.GameOver;
-		Spaceship.SetActive(false);
-		EndScreen.SetActive(true);
+		currentState = GameState.GameOver;		
 	}
 
 	public void ResetGame()

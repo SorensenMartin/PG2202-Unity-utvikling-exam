@@ -17,22 +17,31 @@ public class Player : MonoBehaviour
 
 	void Start()
     {
-        health = 3;
+		Debug.Log("Start Player");
+		health = 10;
 		fuel = 1000;
-	}
+		Debug.Log("Health set to " + health);
+		Debug.Log("Fuel set to " + fuel);
 
+	}
+	
 	
 	void Update()
     {
-
-		if (Time.frameCount % 1000 == 0)
-		{
-			fuel -= 10;
-		}
-		if (fuel <= 0)
-		{
-			gameManager.EndGame();
-		}
+		//check if spaceship moves
+		
+		
+		//while (SpaceShip.transform.position.x > SpaceShip.)
+		//{
+			if (Time.frameCount % 500 == 0)
+			{
+				fuel -= 10;
+			}
+			if (fuel <= 0)
+			{
+				gameManager.EndGame();
+			}
+		//}
 	}
 	
 	public void ReciveDamage(int damage)

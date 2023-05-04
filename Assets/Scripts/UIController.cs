@@ -11,17 +11,19 @@ public class UIController : MonoBehaviour
 
 	void Start()
 	{
-		Debug.Log("Start UIController");
-		startButton.onClick.AddListener(gameManager.StartGame);
-		restartButton.onClick.AddListener(gameManager.ResetGame);
+		Debug.Log("Start UIController");		
 	}
-
+	
 	public void Update()
 	{
 		
 		if (gameManager.currentState == GameManager.GameState.Start)
 		{
-			startButton.gameObject.SetActive(true);
+			startButton.gameObject.SetActive(true);			
+			if (startButton.onClick.GetPersistentEventCount() == 0)
+			{
+				startButton.onClick.AddListener(gameManager.StartGame);
+			}
 		}
 		if (gameManager.currentState == GameManager.GameState.Playing)
 		{
@@ -31,6 +33,10 @@ public class UIController : MonoBehaviour
 		if (gameManager.currentState == GameManager.GameState.GameOver)
 		{
 			restartButton.gameObject.SetActive(true);
+			if (restartButton.onClick.GetPersistentEventCount() == 0)
+			{
+				restartButton.onClick.AddListener(gameManager.ResetGame);
+			}
 		}
 
 	}
