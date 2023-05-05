@@ -27,10 +27,7 @@ public class Player : MonoBehaviour
 	
 	
 	void Update()
-    {
-		//check if spaceship moves
-		
-		
+    {					
 		//while (SpaceShip.transform.position.x > SpaceShip.)
 		//{
 			if (Time.frameCount % 500 == 0)
