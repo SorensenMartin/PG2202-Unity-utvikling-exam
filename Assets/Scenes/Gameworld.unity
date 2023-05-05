@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17714404, g: 0.13584995, b: 0.22454955, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.17714891, g: 0.1358557, b: 0.2245579, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3384,21 +3384,19 @@ MonoBehaviour:
     in a cheerful tone. "We are pleased to welcome you to our humble city. However,
     we have a small favor to ask of you."
 
-    
 
-    The robot guard goes on to
-    explain that they have been expecting a critical package to arrive from a nearby
-    space station, but due to unforeseen circumstances, it has been delayed. They
-    fear that the package may have fallen into the hands of a band of pirates who
-    are known to lurk along the canyons behind the city''s borders.
+    The robot guard goes on to explain
+    that they have been expecting a critical package to arrive from a nearby space
+    station, but due to unforeseen circumstances, it has been delayed. They fear
+    that the package may have fallen into the hands of a band of pirates who are
+    known to lurk along the canyons behind the city''s borders.
 
-    
 
-    "We
-    need someone brave and resourceful to retrieve the package for us," the robot
-    guard says, looking at you with hopeful optics. "If you are willing to help us,
-    we will be eternally grateful, aswell as pay you a reward. Of course, we understand
-    if you do not wish to take on such a dangerous task."'
+    "We need someone
+    brave and resourceful to retrieve the package for us," the robot guard says,
+    looking at you with hopeful optics. "If you are willing to help us, we will be
+    eternally grateful, aswell as pay you a reward. Of course, we understand if you
+    do not wish to take on such a dangerous task."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd303f57cd5a4654e91600718e54983e, type: 2}
   m_sharedMaterial: {fileID: 6117717025152992169, guid: dd303f57cd5a4654e91600718e54983e, type: 2}
@@ -5653,7 +5651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 487433365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 983693637}
+        m_TargetAssemblyTypeName: CityUI, Assembly-CSharp
+        m_MethodName: buyFuel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &487433365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6315,6 +6325,7 @@ MonoBehaviour:
   UIOverlay: {fileID: 2076237384}
   Spaceship: {fileID: 849715039}
   Turrets: {fileID: 417630309}
+  Quests: {fileID: 983693635}
 --- !u!4 &519931480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5572822807502777899, guid: 85b42ad5505718b4c87e05aa7fd71e5e, type: 3}
@@ -8309,7 +8320,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 694686793}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 983693637}
+        m_TargetAssemblyTypeName: CityUI, Assembly-CSharp
+        m_MethodName: leaveCity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &694686793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10442,13 +10465,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983693636}
+  - component: {fileID: 983693637}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &983693636
 Transform:
   m_ObjectHideFlags: 0
@@ -10465,6 +10489,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &983693637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983693635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee0fc8e4aca0f84aa1766e5d5c3382d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameUI: {fileID: 2076237384}
+  SpaceShip: {fileID: 1788552987}
+  QuestUI: {fileID: 1697675802}
+  player: {fileID: 1788552989}
+  AircraftController: {fileID: 849715039}
+  buyFuelButton: {fileID: 487433364}
+  buyHealthButton: {fileID: 1086064900}
+  leaveCityButton: {fileID: 694686792}
 --- !u!4 &988489854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1759940333521465230, guid: 5cb9e9e81258069408a296aa05311b52, type: 3}
@@ -11719,7 +11763,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1086064901}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 983693637}
+        m_TargetAssemblyTypeName: CityUI, Assembly-CSharp
+        m_MethodName: buyHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1086064901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16626,7 +16682,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1477435099 stripped
 Transform:
@@ -17024,13 +17080,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestUI: {fileID: 1697675802}
+  GameUI: {fileID: 2076237384}
+  SpaceShip: {fileID: 1788552987}
   acceptQuestButton: {fileID: 722142914}
   returnQuestButton: {fileID: 940410767}
   deliverScrapButton: {fileID: 1203291829}
-  GameUI: {fileID: 2076237384}
-  SpaceShip: {fileID: 1788552987}
   questAccept: 0
   deliveredQuest: 0
+  QuestTxt: {fileID: 298338137}
 --- !u!1001 &1515939799
 PrefabInstance:
   m_ObjectHideFlags: 0

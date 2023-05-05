@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
 	public GameObject EndScreen;
 	public GameObject UIOverlay;
 	public GameObject Spaceship;
-	public GameObject Turrets;		
+	public GameObject Turrets;
+	public GameObject Quests;
 
 
 	void Start()
@@ -63,7 +64,8 @@ public class GameManager : MonoBehaviour
 		StartScreen.SetActive(false);
 		Spaceship.SetActive(true);
 		Turrets.SetActive(true);
-		UIOverlay.SetActive(true);	
+		UIOverlay.SetActive(true);
+		Quests.SetActive(true);
 	}	
 
 	public void EndGame()
