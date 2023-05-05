@@ -13073,7 +13073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350814031}
   m_LocalRotation: {x: -0, y: 0.66198105, z: -0, w: 0.7495206}
-  m_LocalPosition: {x: -45.9, y: 47.054955, z: -37.96}
+  m_LocalPosition: {x: -42.92, y: 0, z: -62.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13093,10 +13093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980c8d2111e12d541beb86dd5f79e600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
-  radius: 10
-  altitude: 50
-  distance: 1
+  radius: 1
+  speed: 10
 --- !u!4 &1352751071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2177804937670675160, guid: 8242d227a477ebb45b932e56f6abeb14, type: 3}
