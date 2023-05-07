@@ -13,10 +13,13 @@ public class Player : MonoBehaviour
 	public int money;
 	public int packages;
 	private GameObject collidedPackage;
+	
 
 	public GameManager gameManager;
 	public GameObject SpaceShip;
 	public GameObject PickUpPackage;
+
+	public bool mechanicalEngine = false;
 
 	public TextMeshProUGUI packageCountTxt;
 

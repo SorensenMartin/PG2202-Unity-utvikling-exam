@@ -33,7 +33,7 @@ public class StartQuest : MonoBehaviour
 		{
 			GameUI.SetActive(false);
 			SpaceShip.SetActive(false);
-
+			RespondTxt.text = "What do you want to do?";
 			if (questAccept == false && deliveredQuest == false)
 			{
 				Debug.Log("Spaceship has triggered the box trigger for the first time!");

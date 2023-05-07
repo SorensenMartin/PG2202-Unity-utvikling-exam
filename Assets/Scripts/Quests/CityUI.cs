@@ -9,14 +9,13 @@ public class CityUI : MonoBehaviour
 	public GameObject GameUI;
 	public GameObject SpaceShip;
 	public GameObject QuestUI;
+	public GameObject WorkShopUI;
 	public Player player;
 	public GameObject AircraftController;
-
-	public Button buyFuelButton;
-	public Button buyHealthButton;
-	public Button leaveCityButton;
+	public SpaceshipController spaceshipController;	
 
 	public TextMeshProUGUI RespondTxt;
+	public TextMeshProUGUI workshopRespondTxt;
 
 	private void Start()
 	{
@@ -24,22 +23,46 @@ public class CityUI : MonoBehaviour
 		AircraftController = GameObject.Find("Aircraft controller");
 		SpaceShip = GameObject.Find("Desert Rider");
 		player = SpaceShip.GetComponent<Player>();
+		spaceshipController = AircraftController.GetComponent<SpaceshipController>();
 	}
 
 	public void buyFuel()
 	{
-		Debug.Log("Fuel has been bought!");
-		player.fuel = 1500;
+		if (player.money >= 200)
+		{
+			Debug.Log("Fuel has been bought!");
+			player.fuel = 1500;
+			player.money -= 200;
+			RespondTxt.text = "Fuel has been bought!";
+			workshopRespondTxt.text = "Fuel has been bought!";
+		}
+		else
+		{
+			RespondTxt.text = "Not enough money";
+			workshopRespondTxt.text = "Not enough money";
+		}
+		
 	}
 
 	public void buyHealth()
 	{
-		Debug.Log("Health has been bought!");
-		if (player.health < 10) 
-		{ 
-			player.health += 1;
+
+		if (player.money >= 50)
+		{			
+			if (player.health < 10)
+			{
+				player.health += 1;
+				player.money -= 50;
+				Debug.Log("Health has been bought!");
+				RespondTxt.text = "Health has been bought!";
+				workshopRespondTxt.text = "Health has been bought!";
+			}
 		}
-		
+		else
+		{
+			RespondTxt.text = "Not enough money";
+			workshopRespondTxt.text = "Not enough money";
+		}	
 	}
 
 	public void leaveCity()
@@ -48,8 +71,38 @@ public class CityUI : MonoBehaviour
 		GameUI.SetActive(true);
 		SpaceShip.SetActive(true);
 		QuestUI.SetActive(false);
+		WorkShopUI.SetActive(false);
 
 		Vector3 newPosition = AircraftController.transform.position + Vector3.back * 20f;
 		AircraftController.transform.position = newPosition;
+	}
+
+	public void upgradeSpeed()
+	{
+		if (player.money >= 1000)
+		{
+			spaceshipController.speed += 10;
+			player.money -= 1000;
+			workshopRespondTxt.text = "Speed has been upgraded!";
+			
+		}
+		else
+		{
+			workshopRespondTxt.text = "Not enough money";
+		}
+	}
+
+	public void upgradeHealth()
+	{
+		if (player.money >= 200)
+		{
+			player.maxHealth += 1;
+			player.money -= 200;
+			workshopRespondTxt.text = "Health has been upgraded!";
+		}
+		else
+		{
+			workshopRespondTxt.text = "Not enough money";
+		}
 	}
 }
