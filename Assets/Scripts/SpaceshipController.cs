@@ -8,14 +8,16 @@ public class SpaceshipController : MonoBehaviour
 	public float rotationSpeed = 100f; 
 	public float hoverMargin = 0.5f; 
 	public float hoverIncrement = 1f; 
-	public float maxHoverSpeed = 5f;
-	public Terrain EdgeTerrain;
+	public float maxHoverSpeed = 5f;	
+	public Player player;	
 
 	private float hoverHeight;
 	private float hoverSpeed; 
 	private Terrain terrain;
 
-	
+	public GameObject DangerScreen;
+
+
 	void Start()
 	{		
 		RaycastHit hit;
@@ -23,7 +25,7 @@ public class SpaceshipController : MonoBehaviour
 		{
 			terrain = hit.collider.GetComponent<Terrain>();
 			hoverHeight = hit.point.y + hoverMargin;
-		}
+		}		
 	}
 
 	void Update()
@@ -31,20 +33,39 @@ public class SpaceshipController : MonoBehaviour
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit))
 		{
+
+			if (hit.collider.gameObject.tag == "Terrain")
+			{
+				DangerScreen.SetActive(false);
+				adjustHeight();
+			}
+			
+
+
+			if (hit.collider.gameObject.tag == "Hazard")
+			{
+				adjustHeight();
+				DangerScreen.SetActive(true);
+				if (Time.frameCount % 200 == 0)
+				{
+					player.health -= 1;
+					if (player.health <= 0)
+					{
+						player.gameManager.EndGame();
+						DangerScreen.SetActive(false);
+					}
+				}
+			}
+		}
+
+		void adjustHeight()
+		{
 			float terrainHeight = hit.point.y;
 			float targetHoverHeight = terrainHeight + hoverMargin;
 			float hoverError = targetHoverHeight - hoverHeight;
 			float hoverAcceleration = hoverError * hoverIncrement;
 			hoverSpeed = Mathf.Clamp(hoverSpeed + hoverAcceleration, -maxHoverSpeed, maxHoverSpeed);
 			hoverHeight = Mathf.Clamp(hoverHeight + hoverSpeed * Time.deltaTime, terrainHeight + hoverMargin, Mathf.Infinity);
-
-			
-			if (hit.collider.GetComponent<Terrain>() == EdgeTerrain)
-			{
-				hoverSpeed = 0f;
-				transform.Translate(Vector3.forward * speed * Time.deltaTime);
-				Debug.Log("Cannot move forward. Wrong terrain.");
-			}
 		}
 
 		float verticalInput = Input.GetKey(KeyCode.W) ? 1 : 0;

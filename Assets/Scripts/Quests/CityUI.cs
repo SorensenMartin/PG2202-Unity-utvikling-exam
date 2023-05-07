@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CityUI : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CityUI : MonoBehaviour
 	public Button buyFuelButton;
 	public Button buyHealthButton;
 	public Button leaveCityButton;
+
+	public TextMeshProUGUI RespondTxt;
 
 	private void Start()
 	{

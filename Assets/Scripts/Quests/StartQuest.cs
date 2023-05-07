@@ -9,7 +9,10 @@ public class StartQuest : MonoBehaviour
 	public GameObject QuestUI;
 	public GameObject GameUI;
 	public GameObject SpaceShip;
-	
+	public GameObject QuestPackage;
+	public GameObject WorldPackages;
+	public Player player;
+
 	public Button acceptQuestButton;
 	public Button returnQuestButton;
 	public Button deliverScrapButton;
@@ -18,16 +21,20 @@ public class StartQuest : MonoBehaviour
 	public bool deliveredQuest = false;
 
 	public TextMeshProUGUI QuestTxt;
+	public TextMeshProUGUI RespondTxt;
 
 
 	private void OnTriggerEnter(Collider other)
 	{
+		SpaceShip = GameObject.Find("Desert Rider");
+		player = SpaceShip.GetComponent<Player>();
+
 		if (other.gameObject == SpaceShip) 
 		{
 			GameUI.SetActive(false);
 			SpaceShip.SetActive(false);
 
-			if (questAccept == false)
+			if (questAccept == false && deliveredQuest == false)
 			{
 				Debug.Log("Spaceship has triggered the box trigger for the first time!");
 				QuestUI.SetActive(true);
@@ -58,21 +65,49 @@ public class StartQuest : MonoBehaviour
 	public void AcceptQuest()
 	{
 		Debug.Log("Quest has been accepted!");
+		RespondTxt.text = "Mission Accepted";
 		questAccept = true;
 		acceptQuestButton.gameObject.SetActive(false);
+		QuestPackage.SetActive(true);
 	}
 
 	public void ReturnQuest()
 	{
-		Debug.Log("Quest has been returned!");
-		deliveredQuest = true;
-		returnQuestButton.gameObject.SetActive(false);
-		
+		if (player.packages == 1)
+		{
+			QuestTxt.text = "Thank you for delivering the package for us. We couldn't have done it without you." +
+				" As a token of our gratitude, we would like to offer you 1000 gold." +
+				" You can always come back here to deliver scrap and packages for a small coin purse." +
+				" We're always in need of resources to sustain our city.Safe travels, adventurer.";
+			Debug.Log("Quest has been returned!");
+			RespondTxt.text = "Mission Completed";
+			player.money += 1000;
+			deliveredQuest = true;
+			questAccept = false;
+			returnQuestButton.gameObject.SetActive(false);
+			player.packages -= 1;
+		}
+		else
+		{
+			RespondTxt.text = "I dont have the package yet";
+		}
+
 	}
 
 	public void DeliverScrap()
 	{
-		Debug.Log("Scrap has been delivered!");		
+		if (player.packages >= 1)
+		{
+			Debug.Log("Scrap has been delivered!");
+			RespondTxt.text = "Package has been sold";
+			player.packages -= 1;
+			player.money += 450;
+		}
+		else if (player.packages == 0)
+		{
+			Debug.Log("No scrap to deliver!");
+			RespondTxt.text = "No packages to deliver";
+		}
 	}
 
 }
