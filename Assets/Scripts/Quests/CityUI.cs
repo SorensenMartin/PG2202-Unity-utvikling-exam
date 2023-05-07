@@ -10,6 +10,7 @@ public class CityUI : MonoBehaviour
 	public GameObject SpaceShip;
 	public GameObject QuestUI;
 	public GameObject WorkShopUI;
+	public GameObject MirageCityUI;
 	public Player player;
 	public GameObject AircraftController;
 	public SpaceshipController spaceshipController;	
@@ -72,8 +73,9 @@ public class CityUI : MonoBehaviour
 		SpaceShip.SetActive(true);
 		QuestUI.SetActive(false);
 		WorkShopUI.SetActive(false);
+		MirageCityUI.SetActive(false);
 
-		Vector3 newPosition = AircraftController.transform.position + Vector3.back * 20f;
+		Vector3 newPosition = AircraftController.transform.position + Vector3.back * 10f;
 		AircraftController.transform.position = newPosition;
 	}
 

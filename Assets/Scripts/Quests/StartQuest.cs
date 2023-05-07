@@ -78,7 +78,11 @@ public class StartQuest : MonoBehaviour
 			QuestTxt.text = "Thank you for delivering the package for us. We couldn't have done it without you." +
 				" As a token of our gratitude, we would like to offer you 1000 gold." +
 				" You can always come back here to deliver scrap and packages for a small coin purse." +
-				" We're always in need of resources to sustain our city.Safe travels, adventurer.";
+				" We're always in need of resources to sustain our city. " +
+				"If your looking for some upgrades, see if you can find Scorched Skies " +
+				"Shipwork in one of the lonley mountains north of here, there is usually a" +
+				" ship or two flying above it looking for some repairs!" +
+				" Safe travels, adventurer.";
 			Debug.Log("Quest has been returned!");
 			RespondTxt.text = "Mission Completed";
 			player.money += 1000;
