@@ -15,7 +15,7 @@ public class SpaceshipController : MonoBehaviour
 	private float hoverSpeed; 
 	private Terrain terrain;
 
-	public GameObject DangerScreen;
+	public GameObject DangerScreen;	
 
 
 	void Start()
@@ -46,7 +46,7 @@ public class SpaceshipController : MonoBehaviour
 			{
 				adjustHeight();
 				DangerScreen.SetActive(true);
-				if (Time.frameCount % 200 == 0)
+				if (Time.frameCount % 400 == 0)
 				{
 					player.health -= 1;
 					if (player.health <= 0)

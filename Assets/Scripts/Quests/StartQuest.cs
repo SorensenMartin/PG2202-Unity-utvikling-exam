@@ -79,7 +79,8 @@ public class StartQuest : MonoBehaviour
 			QuestTxt.text = "Thank you for delivering the package for us. We couldn't have done it without you." +
 				" As a token of our gratitude, we would like to offer you 1000 gold." +
 				" You can always come back here to deliver scrap and packages for a small coin purse." +
-				" We're always in need of resources to sustain our city. " +
+				" We're always in need of resources to sustain our city. There should be alot of lost packages" +
+				"scatterd around, and you seem to be resourcefull enough to locate a few. " +
 				"If your looking for some upgrades, see if you can find Scorched Skies " +
 				"Shipwork in one of the lonley mountains north of here, there is usually a" +
 				" ship or two flying above it looking for some repairs!" +
@@ -90,6 +91,7 @@ public class StartQuest : MonoBehaviour
 			deliveredQuest = true;
 			questAccept = false;
 			returnQuestButton.gameObject.SetActive(false);
+			WorldPackages.SetActive(true);
 			player.packages -= 1;
 		}
 		else

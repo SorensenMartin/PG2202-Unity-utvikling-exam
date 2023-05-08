@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame()
 	{
-		currentState = GameState.GameOver;		
+		currentState = GameState.GameOver;
+		Cursor.visible = true;
 	}
 	
 	public void QuitGame()
