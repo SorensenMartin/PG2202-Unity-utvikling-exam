@@ -74,6 +74,7 @@ public class CityUI : MonoBehaviour
 		QuestUI.SetActive(false);
 		WorkShopUI.SetActive(false);
 		MirageCityUI.SetActive(false);
+		Cursor.visible = false;
 
 		Vector3 newPosition = AircraftController.transform.position + Vector3.back * 10f;
 		AircraftController.transform.position = newPosition;

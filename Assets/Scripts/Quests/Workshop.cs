@@ -26,6 +26,7 @@ public class Workshop : MonoBehaviour
 			GameUI.SetActive(false);
 			SpaceShip.SetActive(false);
 			workshopUI.SetActive(true);
+			Cursor.visible = true;
 			RespondTxt.text = "What do you want to do?";
 			if (player.mechanicalEngine == true)
 			{

@@ -28,6 +28,7 @@ public class MirageCityQuest : MonoBehaviour
 			mirageCityUI.SetActive(true);
 			GameUI.SetActive(false);
 			SpaceShip.SetActive(false);
+			Cursor.visible = true;
 
 			if (player.mechanicalEngine == false)
 			{

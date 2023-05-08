@@ -8,6 +8,8 @@ public class UIController : MonoBehaviour
 	public Button startButton;
 	public Button restartButton;
 	public GameManager gameManager;
+	public GameObject optionsMenu;
+	public GameObject mainMenu;
 
 	void Start()
 	{
@@ -39,6 +41,19 @@ public class UIController : MonoBehaviour
 			}
 		}
 
+	}
+
+	public void goToOptions()
+	{
+		mainMenu.SetActive(false);
+		optionsMenu.SetActive(true);
+
+	}
+
+	public void goToMainMenu()
+	{
+		mainMenu.SetActive(true);
+		optionsMenu.SetActive(false);
 	}
 
 }

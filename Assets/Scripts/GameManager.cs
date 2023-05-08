@@ -45,8 +45,7 @@ public class GameManager : MonoBehaviour
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
 					Start();
-				}
-
+				}			
 				break;
 			case GameState.GameOver:
 				Spaceship.SetActive(false);
@@ -66,6 +65,7 @@ public class GameManager : MonoBehaviour
 		Turrets.SetActive(true);
 		UIOverlay.SetActive(true);
 		Quests.SetActive(true);
+		Cursor.visible = false;
 	}	
 
 	public void EndGame()
