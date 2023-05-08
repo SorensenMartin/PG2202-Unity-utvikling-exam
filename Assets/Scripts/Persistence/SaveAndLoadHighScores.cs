@@ -32,10 +32,15 @@ public class SaveAndLoadHighScores : MonoBehaviour
 	public void LoadHighScores()
 	{
 		List<HighScoreEntry> highScores = highScoreManager.GetHighScores();
+		int entries = 0;
 
 		string highScoreString = "High Scores:\n";
 		foreach (HighScoreEntry highScore in highScores)
 		{
+			if (entries >= 12)
+			{
+				break;
+			}
 			highScoreString += highScore.name + ": " + "$ " + highScore.score + "\n";
 		}
 		highScoreText.text = highScoreString;
