@@ -8752,7 +8752,6 @@ GameObject:
   - component: {fileID: 492868085}
   - component: {fileID: 492868084}
   - component: {fileID: 492868088}
-  - component: {fileID: 492868089}
   m_Layer: 5
   m_Name: EndScreen
   m_TagString: Untagged
@@ -8859,26 +8858,7 @@ MonoBehaviour:
   gameManager: {fileID: 519536255}
   optionsMenu: {fileID: 0}
   mainMenu: {fileID: 0}
-  highScoreLoader: {fileID: 492868089}
---- !u!114 &492868089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492868083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be505f9917a3d1545b7fee76b63c5cb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1471005126}
-  highScoreText: {fileID: 0}
-  nameInput: {fileID: 1360705987}
-  highScoreManager: {fileID: 754780504}
-  player: {fileID: 1788552989}
-  playAgainButtons: {fileID: 1834484492}
-  highScoreSection: {fileID: 1856186944}
+  highScoreLoader: {fileID: 754780506}
 --- !u!1001 &494120724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10480,7 +10460,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 492868089}
+      - m_Target: {fileID: 754780506}
         m_TargetAssemblyTypeName: SaveAndLoadHighScores, Assembly-CSharp
         m_MethodName: SaveHighScore
         m_Mode: 1
@@ -13350,9 +13330,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754780503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1490038852}
@@ -13370,13 +13350,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be505f9917a3d1545b7fee76b63c5cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1471005126}
   highScoreText: {fileID: 1698707148}
-  nameInput: {fileID: 0}
+  nameInput: {fileID: 1360705987}
   highScoreManager: {fileID: 754780504}
-  player: {fileID: 0}
-  playAgainButtons: {fileID: 0}
-  highScoreSection: {fileID: 0}
+  player: {fileID: 1788552989}
+  playAgainButtons: {fileID: 1834484492}
+  highScoreSection: {fileID: 1856186944}
 --- !u!4 &770359966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2532874343919433463, guid: 9ab4a349919367244af7742a903c2f75, type: 3}
@@ -35207,25 +35187,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7791808191493218286, guid: 2d87c621b267bc8478e3df8008dfed9d, type: 3}
   m_PrefabInstance: {fileID: 636941828}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2106579198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106579185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be505f9917a3d1545b7fee76b63c5cb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  highScoreText: {fileID: 0}
-  nameInput: {fileID: 0}
-  highScoreManager: {fileID: 0}
-  player: {fileID: 0}
-  playAgainButtons: {fileID: 0}
-  highScoreSection: {fileID: 0}
 --- !u!4 &2109155337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2177804937670675160, guid: 8242d227a477ebb45b932e56f6abeb14, type: 3}

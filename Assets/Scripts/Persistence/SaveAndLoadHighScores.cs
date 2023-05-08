@@ -16,8 +16,6 @@ public class SaveAndLoadHighScores : MonoBehaviour
 
 	private int score;
 
-
-
 	public void SaveHighScore()
 	{
 		score = player.money;

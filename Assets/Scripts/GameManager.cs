@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
 					Start();
+					Cursor.visible = true;
 				}			
 				break;
 			case GameState.GameOver:
