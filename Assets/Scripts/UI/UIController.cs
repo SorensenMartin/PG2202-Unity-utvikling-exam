@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
 	public GameManager gameManager;
 	public GameObject optionsMenu;
 	public GameObject mainMenu;
-
+	public SaveAndLoadHighScores highScoreLoader;
 	void Start()
 	{
 		Debug.Log("Start UIController");		
@@ -47,7 +47,7 @@ public class UIController : MonoBehaviour
 	{
 		mainMenu.SetActive(false);
 		optionsMenu.SetActive(true);
-
+		highScoreLoader.LoadHighScores();
 	}
 
 	public void goToMainMenu()
