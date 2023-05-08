@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System.Text.Json;
+using JsonUtility = UnityEngine.JsonUtility;
+
 
 public class HighScoreManager : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class HighScoreManager : MonoBehaviour
 
 	public void SaveHighScore(string playerName, int score)
 	{
+		Debug.Log(playerName + " " + score);
 		// Load existing high scores
 		LoadHighScores();
 
@@ -39,15 +43,30 @@ public class HighScoreManager : MonoBehaviour
 		if (File.Exists(filePath))
 		{
 			string jsonData = File.ReadAllText(filePath);
-			highScores = JsonUtility.FromJson<List<HighScoreEntry>>(jsonData);
+			HighScoreData data = JsonUtility.FromJson<HighScoreData>(jsonData);
+			highScores = data.highScores;
 		}
 	}
 
 	private void SaveHighScores()
 	{
 		// Save high scores to file
-		string jsonData = JsonUtility.ToJson(highScores);
+		HighScoreData data = new HighScoreData();
+		data.highScores = highScores;
+		string jsonData = JsonUtility.ToJson(data);
 		string filePath = Application.persistentDataPath + "/" + highScoreFileName;
 		File.WriteAllText(filePath, jsonData);
+		Debug.Log("Data added: " + highScores + "Filepath: " + filePath);
 	}
 }
+
+[System.Serializable]
+public class HighScoreData
+{
+	public List<HighScoreEntry> highScores = new List<HighScoreEntry>();
+}
+
+
+
+
+

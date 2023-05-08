@@ -26,7 +26,7 @@ public class SaveAndLoadHighScores : MonoBehaviour
 		playAgainButtons.SetActive(true);
 		highScoreSection.SetActive(false);
 
-		Debug.Log("SaveHighScore" + playerName + " " + score );
+		Debug.Log("SaveHighScore " + playerName + " " + score );
 	}
 
 	public void LoadHighScores()
@@ -36,7 +36,7 @@ public class SaveAndLoadHighScores : MonoBehaviour
 		string highScoreString = "High Scores:\n";
 		foreach (HighScoreEntry highScore in highScores)
 		{
-			highScoreString += highScore.name + ": " + highScore.score + "\n";
+			highScoreString += highScore.name + ": " + "$ " + highScore.score + "\n";
 		}
 		highScoreText.text = highScoreString;
 
