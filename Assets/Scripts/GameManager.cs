@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
 				break;
 			case GameState.Playing:
 				StartScreen.SetActive(false);
-				Spaceship.SetActive(true);				
-				if (Input.GetKeyDown(KeyCode.Escape))
+				Spaceship.SetActive(true);
+				if (Input.GetKeyDown(KeyCode.Escape) && UIOverlay.activeSelf == true)				
 				{
 					Start();
 					Cursor.visible = true;
