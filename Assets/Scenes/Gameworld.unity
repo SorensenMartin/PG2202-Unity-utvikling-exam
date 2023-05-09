@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17714404, g: 0.13584995, b: 0.22454955, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.17714891, g: 0.1358557, b: 0.2245579, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11196,7 +11196,7 @@ MonoBehaviour:
   Spaceship: {fileID: 849715039}
   Turrets: {fileID: 1947616183686308177}
   Quests: {fileID: 983693635}
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 1005356192}
 --- !u!4 &519931480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5572822807502777899, guid: 85b42ad5505718b4c87e05aa7fd71e5e, type: 3}
@@ -17225,6 +17225,7 @@ MonoBehaviour:
   SpaceShip: {fileID: 1788552987}
   player: {fileID: 1788552989}
   EngineButton: {fileID: 576495597}
+  gameManager: {fileID: 519536255}
   MirageTxtRespond: {fileID: 1015606656}
   MirageCityTxt: {fileID: 2090655620}
 --- !u!4 &895234396 stripped
@@ -18423,6 +18424,7 @@ MonoBehaviour:
   BoostButton: {fileID: 1690111839}
   UpgradeButton: {fileID: 1183626076}
   AircraftController: {fileID: 849715039}
+  gameManager: {fileID: 519536255}
   player: {fileID: 1788552989}
   spaceshipController: {fileID: 849715041}
   RespondTxt: {fileID: 1872014672}
@@ -28660,6 +28662,7 @@ MonoBehaviour:
   WorldPackages: {fileID: 1477427268}
   QuestIcon: {fileID: 2048910758}
   player: {fileID: 1788552989}
+  gameManager: {fileID: 519536255}
   acceptQuestButton: {fileID: 722142914}
   returnQuestButton: {fileID: 940410767}
   deliverScrapButton: {fileID: 1203291829}
@@ -33381,14 +33384,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalTiltAmount: 60
   smoothTime: 5
---- !u!81 &1788553005
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788552987}
-  m_Enabled: 1
 --- !u!1001 &1789226958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33968,6 +33963,7 @@ MonoBehaviour:
   SpaceShip: {fileID: 1788552987}
   shipButtons: {fileID: 247874136}
   player: {fileID: 1788552989}
+  gameManager: {fileID: 519536255}
   GarageTxt: {fileID: 5499313}
   RespondTxt: {fileID: 1879941834}
 --- !u!1 &1812842418 stripped
@@ -44165,8 +44161,7 @@ PrefabInstance:
       propertyPath: speed
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7170487024778186988, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
 --- !u!4 &8155591456999668466 stripped
 Transform:

@@ -13,6 +13,7 @@ public class StartQuest : MonoBehaviour
 	public GameObject WorldPackages;
 	public GameObject QuestIcon;
 	public Player player;
+	public GameManager gameManager;
 
 	public Button acceptQuestButton;
 	public Button returnQuestButton;
@@ -32,6 +33,7 @@ public class StartQuest : MonoBehaviour
 
 		if (other.gameObject == SpaceShip) 
 		{
+			gameManager.Quest();
 			GameUI.SetActive(false);
 			SpaceShip.SetActive(false);
 			Cursor.visible = true;

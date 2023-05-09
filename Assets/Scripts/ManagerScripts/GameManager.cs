@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	{
 		Start,
 		Playing,
+		Quest,
 		GameOver
 	}
 	//Objects controlled
@@ -31,7 +32,8 @@ public class GameManager : MonoBehaviour
 		StartScreen.SetActive(true);
 		Spaceship.SetActive(false);
 		EndScreen.SetActive(false);
-		UIOverlay.SetActive(false);		
+		UIOverlay.SetActive(false);
+		Turrets.SetActive(false);
 	}
 
 	void Update()
@@ -42,13 +44,14 @@ public class GameManager : MonoBehaviour
 				
 				break;
 			case GameState.Playing:
-				StartScreen.SetActive(false);
-				Spaceship.SetActive(true);
 				if (Input.GetKeyDown(KeyCode.Escape) && UIOverlay.activeSelf == true)				
 				{
 					Start();
 					Cursor.visible = true;
 				}			
+				break;
+			case GameState.Quest:
+				Spaceship.SetActive(false);
 				break;
 			case GameState.GameOver:
 				Spaceship.SetActive(false);
@@ -90,5 +93,14 @@ public class GameManager : MonoBehaviour
 	{
 		//Resets the scene
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	public void Quest()
+	{
+		currentState = GameState.Quest;
+		Spaceship.SetActive(false);
+		Quests.SetActive(true);
+		UIOverlay.SetActive(true);
+		Cursor.visible = true;
 	}
 }

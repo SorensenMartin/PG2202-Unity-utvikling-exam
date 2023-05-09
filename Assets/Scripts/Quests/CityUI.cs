@@ -14,7 +14,8 @@ public class CityUI : MonoBehaviour
 	public GameObject BoostButton;
 	public GameObject UpgradeButton;
 	public GameObject AircraftController;
-	
+	public GameManager gameManager;
+
 	public Player player;
 	public SpaceshipController spaceshipController;
 	
@@ -71,6 +72,8 @@ public class CityUI : MonoBehaviour
 
 	public void leaveCity()
 	{
+
+		gameManager.StartGame();
 		Debug.Log("City has been left!");
 		GameUI.SetActive(true);
 		SpaceShip.SetActive(true);

@@ -11,6 +11,7 @@ public class MirageCityQuest : MonoBehaviour
 	public GameObject SpaceShip;	
 	public Player player;
 	public GameObject EngineButton;
+	public GameManager gameManager;
 
 	public TextMeshProUGUI MirageTxtRespond;
 	public TextMeshProUGUI MirageCityTxt;
@@ -24,6 +25,7 @@ public class MirageCityQuest : MonoBehaviour
 
 		if (other.gameObject == SpaceShip)
 		{
+			gameManager.Quest();
 			Debug.Log("Entered Mirage City");
 			mirageCityUI.SetActive(true);
 			GameUI.SetActive(false);

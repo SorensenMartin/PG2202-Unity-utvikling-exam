@@ -10,8 +10,9 @@ public class Workshop : MonoBehaviour
 	public GameObject GameUI;
 	public GameObject SpaceShip;
 	public GameObject shipButtons;
-	public Player player;			
-	
+	public Player player;
+	public GameManager gameManager;
+
 	public TextMeshProUGUI GarageTxt;
 	public TextMeshProUGUI RespondTxt;
 
@@ -23,6 +24,7 @@ public class Workshop : MonoBehaviour
 
 		if (other.gameObject == SpaceShip)
 		{
+			gameManager.Quest();
 			GameUI.SetActive(false);
 			SpaceShip.SetActive(false);
 			workshopUI.SetActive(true);
