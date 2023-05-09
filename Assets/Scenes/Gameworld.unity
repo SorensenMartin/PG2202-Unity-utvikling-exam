@@ -18675,7 +18675,7 @@ MonoBehaviour:
   spaceShipFlying: {fileID: 151897628}
   clickSoundEffect: {fileID: 306478011}
   gameManager: {fileID: 519536255}
-  SpaceshipController: {fileID: 849715039}
+  OverlayUI: {fileID: 2076237384}
 --- !u!4 &1013052388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5725763448609449695, guid: 3afd03a1ab7d0b342ae3570e28982d26, type: 3}
