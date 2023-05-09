@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17714891, g: 0.1358557, b: 0.2245579, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.17714404, g: 0.13584995, b: 0.22454955, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -572,7 +572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &41082951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27609,7 +27609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1482691786
 Transform:
   m_ObjectHideFlags: 0
@@ -34568,15 +34568,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34619,9 +34619,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a390793f39ca0ad4f9320506124def8b, type: 2}
+      objectReference: {fileID: 2100000, guid: c13ea9de8672c234dbc8edfbf7093122, type: 2}
     - target: {fileID: 919132149155446097, guid: fabf75a0418ffea4a8ef00976802aef4, type: 3}
       propertyPath: m_Name
       value: Aircraft
