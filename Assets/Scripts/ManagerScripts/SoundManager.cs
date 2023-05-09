@@ -8,8 +8,7 @@ public class SoundManager : MonoBehaviour
 	public AudioSource spaceShipFlying;
 	public AudioSource clickSoundEffect;
 	public GameManager gameManager;
-
-	public GameObject SpaceshipController;
+	public GameObject OverlayUI;
 
 	void Update()
 	{
@@ -24,7 +23,8 @@ public class SoundManager : MonoBehaviour
 			StartCoroutine(FadeOut(spaceShipFlying, 0.5f));
 		} */
 
-		if (Input.GetKeyDown(KeyCode.Mouse0) && SpaceshipController.activeSelf != true)
+		if (Input.GetKeyDown(KeyCode.Mouse0) && OverlayUI.activeSelf != true)
+			
 		{
 			clickSoundEffect.Play();
 		}
