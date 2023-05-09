@@ -11,6 +11,7 @@ public class StartQuest : MonoBehaviour
 	public GameObject SpaceShip;
 	public GameObject QuestPackage;
 	public GameObject WorldPackages;
+	public GameObject QuestIcon;
 	public Player player;
 
 	public Button acceptQuestButton;
@@ -70,6 +71,7 @@ public class StartQuest : MonoBehaviour
 		questAccept = true;
 		acceptQuestButton.gameObject.SetActive(false);
 		QuestPackage.SetActive(true);
+		QuestIcon.SetActive(true);
 	}
 
 	public void ReturnQuest()

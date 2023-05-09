@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 	public GameManager gameManager;
 	public GameObject SpaceShip;
 	public GameObject PickUpPackage;
+	public GameObject QuestIcon;
 
 	public bool mechanicalEngine = false;
 	public bool boostUpgrade = false;
@@ -53,7 +54,8 @@ public class Player : MonoBehaviour
 			packages += 1;
 			PickUpPackage.SetActive(false);
 			Destroy(collidedPackage);
-			collidedPackage = null;			
+			collidedPackage = null;
+			QuestIcon.SetActive(false);
 		}
 		packageCountTxt.text = packages.ToString();
 	}
