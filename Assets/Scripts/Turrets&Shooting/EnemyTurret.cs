@@ -35,7 +35,7 @@ public class EnemyTurret : MonoBehaviour
         // set the different parts of the turret to variables for later use
         mainHousing = transform.GetChild(0).gameObject;
         barrelHousing = mainHousing.transform.GetChild(0).gameObject;
-        projectileParent = barrelHousing.transform.GetChild(1).gameObject;        
+        projectileParent = barrelHousing.transform.GetChild(1).gameObject;
 
         // Set the target for the aim and look at constraints
         playerTarget.weight = 1;
@@ -52,10 +52,12 @@ public class EnemyTurret : MonoBehaviour
         if (_activeState == State.Idle)
         {
             _Idle();
-        } else if (_activeState == State.Aiming)
+        }
+        else if (_activeState == State.Aiming)
         {
             _Aiming();
-        } else if (_activeState == State.Firing)
+        }
+        else if (_activeState == State.Firing)
         {
             _Firing();
         }
@@ -70,7 +72,8 @@ public class EnemyTurret : MonoBehaviour
 
     void _Idle()
     {
-        if (Vector3.Distance(transform.position, playerTargetTransform.position) < aimingDistance ) {
+        if (Vector3.Distance(transform.position, playerTargetTransform.position) < aimingDistance)
+        {
             enterAiming();
         }
     }
@@ -88,10 +91,12 @@ public class EnemyTurret : MonoBehaviour
 
     void _Aiming()
     {
-        if (Vector3.Distance(transform.position, playerTargetTransform.position) > aimingDistance ) 
+        if (Vector3.Distance(transform.position, playerTargetTransform.position) > aimingDistance)
         {
-            enterAiming();
-        } else if (Vector3.Distance(transform.position, playerTargetTransform.position) < (aimingDistance - firingMargin) ) {
+            enterIdle();
+        }
+        else if (Vector3.Distance(transform.position, playerTargetTransform.position) < (aimingDistance - firingMargin))
+        {
             enterFiring();
         }
     }
@@ -107,7 +112,7 @@ public class EnemyTurret : MonoBehaviour
 
     void _Firing()
     {
-        if (Vector3.Distance(transform.position, playerTargetTransform.position) > (aimingDistance - firingMargin) )
+        if (Vector3.Distance(transform.position, playerTargetTransform.position) > (aimingDistance - firingMargin))
         {
             enterAiming();
         }
