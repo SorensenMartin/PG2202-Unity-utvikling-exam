@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 	public GameObject Spaceship;
 	public GameObject Turrets;
 	public GameObject Quests;
+	public SoundManager soundManager;
 
 
 	void Start()

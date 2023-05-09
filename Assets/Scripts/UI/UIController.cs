@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-	public Button startButton;
-	public Button restartButton;
 	public GameManager gameManager;
+	
 	public GameObject optionsMenu;
 	public GameObject mainMenu;
+	
+	public Button startButton;
+	public Button restartButton;
+	
 	public SaveAndLoadHighScores highScoreLoader;
+	
 	void Start()
 	{
 		Debug.Log("Start UIController");		

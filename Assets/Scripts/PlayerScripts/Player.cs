@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
 	public bool mechanicalEngine = false;
 
+	public bool boostUpgrade = false;
+
 	public TextMeshProUGUI packageCountTxt;
 
 	void Start()

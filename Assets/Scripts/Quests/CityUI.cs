@@ -11,10 +11,13 @@ public class CityUI : MonoBehaviour
 	public GameObject QuestUI;
 	public GameObject WorkShopUI;
 	public GameObject MirageCityUI;
-	public Player player;
+	public GameObject BoostButton;
+	public GameObject UpgradeButton;
 	public GameObject AircraftController;
-	public SpaceshipController spaceshipController;	
-
+	
+	public Player player;
+	public SpaceshipController spaceshipController;
+	
 	public TextMeshProUGUI RespondTxt;
 	public TextMeshProUGUI workshopRespondTxt;
 
@@ -85,6 +88,7 @@ public class CityUI : MonoBehaviour
 		if (player.money >= 1000)
 		{
 			spaceshipController.speed += 10;
+			spaceshipController.originalSpeed = spaceshipController.speed;
 			player.money -= 1000;
 			workshopRespondTxt.text = "Speed has been upgraded!";
 			
@@ -102,6 +106,22 @@ public class CityUI : MonoBehaviour
 			player.maxHealth += 1;
 			player.money -= 200;
 			workshopRespondTxt.text = "Health has been upgraded!";
+		}
+		else
+		{
+			workshopRespondTxt.text = "Not enough money";
+		}
+	}
+
+	public void SpeedBoost()
+	{
+		if (player.money >= 500)
+		{
+			player.boostUpgrade = true;
+			player.money -= 500;
+			BoostButton.SetActive(true);
+			UpgradeButton.SetActive(false);
+			workshopRespondTxt.text = "Boost activated!";
 		}
 		else
 		{

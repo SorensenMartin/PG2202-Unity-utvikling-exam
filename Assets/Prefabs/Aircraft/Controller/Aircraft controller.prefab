@@ -146,6 +146,8 @@ MonoBehaviour:
   hoverIncrement: 5
   maxHoverSpeed: 5
   player: {fileID: 0}
+  originalSpeed: 0
+  boostCooldown: 10
   DangerScreen: {fileID: 0}
 --- !u!1 &1474003843343011256
 GameObject:
@@ -179,9 +181,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7032624323088769944}
-  - {fileID: 5860460761985624692}
   - {fileID: 5602008806978891488}
+  - {fileID: 8228783874068391609}
   m_Father: {fileID: 2800186254202879438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
@@ -271,7 +272,41 @@ MonoBehaviour:
   SpaceShip: {fileID: 1474003843343011256}
   PickUpPackage: {fileID: 0}
   mechanicalEngine: 0
+  boostUpgrade: 0
   packageCountTxt: {fileID: 0}
+--- !u!1 &4128951082403207885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8228783874068391609}
+  m_Layer: 0
+  m_Name: Afterburners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8228783874068391609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4128951082403207885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7032624323088769944}
+  - {fileID: 5860460761985624692}
+  m_Father: {fileID: 2251630501824894722}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6590694314080921717
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +751,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2251630501824894722}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8720555156006772378
 MonoBehaviour:
@@ -738,7 +773,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2251630501824894722}
+    m_TransformParent: {fileID: 8228783874068391609}
     m_Modifications:
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_RootOrder
@@ -746,15 +781,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.374
+      value: -0.37400055
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.009
+      value: 0.008998871
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3306
+      value: 0.3306008
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -800,7 +835,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2251630501824894722}
+    m_TransformParent: {fileID: 8228783874068391609}
     m_Modifications:
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_RootOrder
@@ -808,15 +843,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.374
+      value: 0.3740006
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.009
+      value: 0.008998871
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3306
+      value: 0.3306007
       objectReference: {fileID: 0}
     - target: {fileID: 60099023801579939, guid: 8ffb0bc98ff4691488c82bde50a1c1a2, type: 3}
       propertyPath: m_LocalRotation.w

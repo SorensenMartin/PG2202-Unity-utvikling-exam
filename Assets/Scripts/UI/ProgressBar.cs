@@ -11,7 +11,7 @@ public class ProgressBar : MonoBehaviour
 {
 
 	public int currentHealth;
-    public int maximumHealth;
+	public int maximumHealth; 
 	public int currentFuel;
 	public int maximumFuel;
 	public int money;
@@ -43,6 +43,7 @@ public class ProgressBar : MonoBehaviour
 			MoneyTxt.text = "$: " + money;
 
 			currentHealth = SpaceShip.health;
+			maximumHealth = SpaceShip.maxHealth;
 			GetCurrentHealthFill();
 			HealthTxt.text = "HP: " + currentHealth + "/" + maximumHealth;
 

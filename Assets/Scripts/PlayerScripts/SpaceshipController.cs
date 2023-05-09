@@ -10,24 +10,33 @@ public class SpaceshipController : MonoBehaviour
     public float hoverIncrement = 1f;
     public float maxHoverSpeed = 5f;
     public Player player;
+    public float originalSpeed;
+	public float boostCooldown = 10f;
+	public bool canBoost = true;
+    public GameObject boostButton;
 
-    private float hoverHeight;
+	private float hoverHeight;
     private float hoverSpeed;
     private Terrain terrain;
 
     public GameObject DangerScreen;
 
     RaycastHit hit;
+    
+	public AudioSource boostSoundEffect;
 
-    void Start()
+	public ParticleSystem ps;
+	public ParticleSystem ps2;
+
+	private ParticleSystem.MainModule afterBurner1;
+	private ParticleSystem.MainModule afterBurner2;
+
+	void Start()
     {
-        /*
-        if (Physics.Raycast(transform.position, Vector3.down, out hit))
-        {
-            terrain = hit.collider.GetComponent<Terrain>();
-            hoverHeight = hit.point.y + hoverMargin;
-        }*/
-    }
+        originalSpeed = speed;		
+        afterBurner1 = ps.main;
+		afterBurner2 = ps2.main;
+	}
 
     void Update()
     {
@@ -70,7 +79,16 @@ public class SpaceshipController : MonoBehaviour
 
         float hoverVelocity = (hoverHeight - transform.position.y) * speed * Time.deltaTime;
         transform.Translate(Vector3.up * hoverVelocity);
-    }
+
+		if (player.boostUpgrade == true)
+		{
+			if (Input.GetKeyDown(KeyCode.E))
+			{
+				StartCoroutine(SpeedBoostActivate());
+			}
+		}
+
+	}
 
     void adjustHeight()
     {
@@ -81,4 +99,31 @@ public class SpaceshipController : MonoBehaviour
         hoverSpeed = Mathf.Clamp(hoverSpeed + hoverAcceleration, -maxHoverSpeed, maxHoverSpeed);
         hoverHeight = Mathf.Clamp(hoverHeight + hoverSpeed * Time.deltaTime, terrainHeight + hoverMargin, Mathf.Infinity);
     }
+
+	private IEnumerator BoostCooldownCoroutine()
+	{
+		canBoost = false;
+		yield return new WaitForSeconds(boostCooldown);
+		canBoost = true;
+		boostButton.SetActive(true);
+	}
+
+	private IEnumerator SpeedBoostActivate()
+	{
+		if (canBoost)
+		{
+			boostButton.SetActive(false);
+			boostSoundEffect.Play();
+			canBoost = false;
+			speed *= 3f;
+			afterBurner1.startSize = new ParticleSystem.MinMaxCurve(1f, 1.2f);
+			afterBurner2.startSize = new ParticleSystem.MinMaxCurve(1f, 1.2f);
+			yield return new WaitForSeconds(2.5f);
+			afterBurner1.startSize = new ParticleSystem.MinMaxCurve(0.3f, 0.4f);
+			afterBurner2.startSize = new ParticleSystem.MinMaxCurve(0.3f, 0.4f);
+            
+			speed = originalSpeed;
+			StartCoroutine(BoostCooldownCoroutine());			
+		}
+	}         
 }
