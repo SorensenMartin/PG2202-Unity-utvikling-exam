@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
 	public AudioSource spaceShipFlying;
-	public AudioSource boostSoundEffect;
+	public AudioSource clickSoundEffect;
 	public GameManager gameManager;
 
 	public GameObject SpaceshipController;
@@ -22,12 +22,12 @@ public class SoundManager : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.W))
 		{
 			StartCoroutine(FadeOut(spaceShipFlying, 0.5f));
-		}
+		} */
 
-		if (Input.GetKeyDown(KeyCode.E) && gameManager.currentState == GameManager.GameState.Playing && SpaceshipController.GetComponent<SpaceshipController>().canBoost == true)
+		if (Input.GetKeyDown(KeyCode.Mouse0) && SpaceshipController.activeSelf != true)
 		{
-			boostSoundEffect.Play();
-		}*/
+			clickSoundEffect.Play();
+		}
 
 	}
 

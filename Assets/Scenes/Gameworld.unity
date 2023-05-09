@@ -18545,7 +18545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceShipFlying: {fileID: 151897628}
-  boostSoundEffect: {fileID: 371523152}
+  clickSoundEffect: {fileID: 0}
   gameManager: {fileID: 519536255}
   SpaceshipController: {fileID: 849715039}
 --- !u!4 &1013052388 stripped
@@ -33265,6 +33265,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalTiltAmount: 60
   smoothTime: 5
+--- !u!81 &1788553005
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788552987}
+  m_Enabled: 1
 --- !u!1001 &1789226958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41474,7 +41482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931124217603817238, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1337456664263621787, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: m_IsTrigger
@@ -41644,6 +41652,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7170487024778186989, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170487024778186989, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7170487024778186991, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 55
@@ -41712,7 +41728,8 @@ PrefabInstance:
       propertyPath: speed
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7170487024778186988, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
 --- !u!4 &8155591456999668466 stripped
 Transform:
