@@ -18,6 +18,7 @@ public class Compass : MonoBehaviour
 
 	void Update()
     {
+		//An attempt at a compass, works, alltouh it is not very accurate and the visual is abit off.
 		SetMarkerPosition(ReferenceCompass, objectiveObjectTransform.position);
 		SetMarkerPosition(NorthMarkerTransform, Vector3.forward * 1000);
 		SetMarkerPosition(SouthMarkerTransform, Vector3.back * 1000);
@@ -27,6 +28,7 @@ public class Compass : MonoBehaviour
 
 	private void SetMarkerPosition(RectTransform markerTransform, Vector3 worldPosition)
 	{
+		//Sets a marker for the compass, acting as a compass needle.
 		Vector3 directionToTarget = worldPosition - cameraObjectTransform.position;
 		float angle = Vector2.Angle(new Vector2(directionToTarget.x, directionToTarget.z), 
             new Vector2(cameraObjectTransform.transform.forward.x, cameraObjectTransform.transform.forward.z));

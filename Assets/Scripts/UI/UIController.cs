@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
 	
 	public void Update()
 	{
-		
+		// This code could perhaps be taken out into separte methods, but it activates the game buttons according to the gamestateEnum
 		if (gameManager.currentState == GameManager.GameState.Start)
 		{
 			startButton.gameObject.SetActive(true);			

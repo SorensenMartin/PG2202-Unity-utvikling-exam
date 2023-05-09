@@ -6,7 +6,6 @@ using TMPro;
 
 public class SaveAndLoadHighScores : MonoBehaviour
 {
-	public TextMeshProUGUI scoreText;
 	public TextMeshProUGUI highScoreText;
 	public TMP_InputField nameInput;
 	public HighScoreManager highScoreManager;
@@ -17,10 +16,9 @@ public class SaveAndLoadHighScores : MonoBehaviour
 	private int score;
 
 	public void SaveHighScore()
-	{
+	{	
+		//Saves the highscore with player.money and input values from name field
 		score = player.money;
-				
-		scoreText.text = "You earned: $ " + score.ToString();
 		string playerName = nameInput.text;		
 		highScoreManager.SaveHighScore(playerName, score);
 		playAgainButtons.SetActive(true);
@@ -31,6 +29,7 @@ public class SaveAndLoadHighScores : MonoBehaviour
 
 	public void LoadHighScores()
 	{
+		//Loads the highscore from the highscoremanager and displays it in the options UI
 		List<HighScoreEntry> highScores = highScoreManager.GetHighScores();
 		int entries = 0;
 

@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour
 
 	void Update()
 	{
+		//Uncomment this code if you want to use the sound effects of the spaceship
+
 		/*if (Input.GetKeyDown(KeyCode.W) && gameManager.currentState == GameManager.GameState.Playing)
 		{			
 			StartCoroutine(FadeIn(spaceShipFlying, 0.5f));
@@ -26,9 +28,10 @@ public class SoundManager : MonoBehaviour
 		{
 			boostSoundEffect.Play();
 		}*/
-		
+
 	}
 
+	// gradually fades in the sound by using a coroutine
 	IEnumerator FadeIn(AudioSource audioSource, float fadeDuration)
 	{
 		audioSource.volume = 0f;
@@ -41,6 +44,7 @@ public class SoundManager : MonoBehaviour
 		}
 	}
 
+	// gradually fades out the sound by using a coroutine
 	IEnumerator FadeOut(AudioSource audioSource, float duration)
 	{
 		float startVolume = audioSource.volume;

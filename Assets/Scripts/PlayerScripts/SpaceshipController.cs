@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
-    public float speed = 10f;
+	//Changeable variables for the ship
+	public float speed = 10f;
     public float rotationSpeed = 100f;
     public float hoverMargin = 0.5f;
     public float hoverIncrement = 1f;
@@ -33,22 +34,25 @@ public class SpaceshipController : MonoBehaviour
 
 	void Start()
     {
-        originalSpeed = speed;		
+		//Get original speed and thruster for boost upgrade
+		originalSpeed = speed;		
         afterBurner1 = ps.main;
 		afterBurner2 = ps2.main;
 	}
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+		//Raycast to find terrain and set hoverHeight for the ship
+		if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
-
-            if (hit.collider.gameObject.tag == "Terrain")
+			//Ensures that the ship is flying above the gameTerrain tagged Terrain
+			if (hit.collider.gameObject.tag == "Terrain")
             {
                 DangerScreen.SetActive(false);
                 adjustHeight();
             }
-            else if (hit.collider.gameObject.tag == "Hazard")
+			//Activates Hazard screen and damages player if the fly over gameTerrain tagged Hazard
+			else if (hit.collider.gameObject.tag == "Hazard")
             {
                 adjustHeight();
                 DangerScreen.SetActive(true);
@@ -70,16 +74,19 @@ public class SpaceshipController : MonoBehaviour
             transform.Translate(Vector3.up * 10);
         }
 
-
-        float verticalInput = Input.GetKey(KeyCode.W) ? 1 : 0;
+		// Returns 1 to vertical input if W is pressed, and then moving the ship forward.
+		float verticalInput = Input.GetKey(KeyCode.W) ? 1 : 0;
         transform.Translate(Vector3.forward * verticalInput * -speed * Time.deltaTime);
 
-        float horizontalInput = Input.GetAxis("Horizontal");
+		// Using the built in Input.GetAxis function to get the horizontal input and then rotating the ship.
+		float horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);
 
-        float hoverVelocity = (hoverHeight - transform.position.y) * speed * Time.deltaTime;
+		//  Setting the hover velocity to the difference between the hover height and the current height, and then moving the ship up.
+		float hoverVelocity = (hoverHeight - transform.position.y) * speed * Time.deltaTime;
         transform.Translate(Vector3.up * hoverVelocity);
 
+		//Activates the ability to boost if boostUpgrade is true
 		if (player.boostUpgrade == true)
 		{
 			if (Input.GetKeyDown(KeyCode.E))
@@ -92,16 +99,19 @@ public class SpaceshipController : MonoBehaviour
 
     void adjustHeight()
     {
-        float terrainHeight = hit.point.y;
+		//Use data from raycast to assert the position of the ship
+		float terrainHeight = hit.point.y;
         float targetHoverHeight = terrainHeight + hoverMargin;
         float hoverError = targetHoverHeight - hoverHeight;
         float hoverAcceleration = hoverError * hoverIncrement;
-        hoverSpeed = Mathf.Clamp(hoverSpeed + hoverAcceleration, -maxHoverSpeed, maxHoverSpeed);
+		//Ensures that the hoverspeed and hoverheight does not go over or under the max/min hover speed/height
+		hoverSpeed = Mathf.Clamp(hoverSpeed + hoverAcceleration, -maxHoverSpeed, maxHoverSpeed);
         hoverHeight = Mathf.Clamp(hoverHeight + hoverSpeed * Time.deltaTime, terrainHeight + hoverMargin, Mathf.Infinity);
     }
 
 	private IEnumerator BoostCooldownCoroutine()
 	{
+		//Cooldown for boost
 		canBoost = false;
 		yield return new WaitForSeconds(boostCooldown);
 		canBoost = true;
@@ -112,6 +122,7 @@ public class SpaceshipController : MonoBehaviour
 	{
 		if (canBoost)
 		{
+			//Boost ability, sets speed high for 3 sec, and enlargens the particles on the afterburner
 			boostButton.SetActive(false);
 			boostSoundEffect.Play();
 			canBoost = false;

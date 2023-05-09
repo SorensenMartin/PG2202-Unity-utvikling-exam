@@ -31,12 +31,14 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//does not do anything if the ship is turned off
 		if (SpaceShip == null)
 		{
 			return;
 		}
 		else
 		{
+			//updates the health, fuel, and money on the inGameOverlayUI
 			money = SpaceShip.money;
 			MoneyTxt.text = "$: " + money;
 
@@ -51,12 +53,14 @@ public class ProgressBar : MonoBehaviour
 		}
 	}
 
+	//Gets the amount of fuel left
 	void GetCurrentFuelFill()
 	{
 		float fillAmountFuel = (float)currentFuel / (float)maximumFuel;
 		fillFuel.fillAmount = fillAmountFuel;
 	}
-
+	
+	//Gets the amount of health currently
 	void GetCurrentHealthFill()
     {
         float fillAmountHealth = (float)currentHealth / (float)maximumHealth;

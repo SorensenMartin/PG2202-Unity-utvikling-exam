@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	//The different states the GameManager is responsible for
 	public enum GameState
 	{
 		Start,
 		Playing,
 		GameOver
 	}
-
+	//Objects controlled
 	public GameState currentState;
 	public GameObject StartScreen;
 	public GameObject EndScreen;
@@ -56,9 +57,10 @@ public class GameManager : MonoBehaviour
 				break;
 		}
 	}
-
+	
 	public void StartGame()
 	{
+		//Activates the spaceship and disables the startscreen
 		Debug.Log("Now Playing");
 		currentState = GameState.Playing;
 		StartScreen.SetActive(false);
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame()
 	{
+		//Activates the endscreen and disables the spaceship
 		currentState = GameState.GameOver;
 		Cursor.visible = true;
 		Turrets.SetActive(false);
@@ -78,12 +81,14 @@ public class GameManager : MonoBehaviour
 	
 	public void QuitGame()
 	{
+		//Quits the application
 		Application.Quit();
 		Debug.Log("Application has been quit");
 	}
 
 	public void ResetGame()
 	{
+		//Resets the scene
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
