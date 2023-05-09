@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class RotationTilt : MonoBehaviour
 {
+	public float horizontalTiltAmount;
+	public float smoothTime;
 
-    public float horisontalTiltAmount = 20f;
-    public float verticalTiltAmount = 20f;
+	private Quaternion previousRotation;
 
-    private Quaternion previousRotation;
-    private float previousHeight;
+	void Start()
+	{
+		
+		previousRotation = transform.parent.localRotation;
+	}
 
-    void Start()
-    {
-        previousRotation = transform.parent.localRotation;
-        previousHeight = transform.parent.position.y;
-    }
+	void Update()
+	{
+		// Get the horizontal rotation speed of the controller
+		Quaternion currentRotation = transform.parent.localRotation;
+		Quaternion rotationChange = currentRotation * Quaternion.Inverse(previousRotation);
+		Vector3 rotationSpeed = rotationChange.eulerAngles;
+		// Make it tilt if you press the Horizontal buttons A or D, negative or positive to feed the
+		// horizontalTiltAmount variable, or 0 if its let go steadying the ship.
+		float horizontalInput = Input.GetAxis("Horizontal");
+		float horizontalTilt = horizontalInput * horizontalTiltAmount;
+		Quaternion targetRotation = Quaternion.Euler(0f, 0f, horizontalTilt);
+		//Slerp ensures smooth rotations
+		transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, Time.deltaTime * smoothTime);
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Get the horisontal rotation speed of the controller
-        Quaternion currentRotation = transform.parent.localRotation;
-        Quaternion rotationChange = currentRotation * Quaternion.Inverse(previousRotation);
-        Vector3 rotationSpeed = rotationChange.eulerAngles;
-
-        float currentHeight = transform.parent.position.y;
-        float heightChange = (currentHeight - previousHeight);
-
-        transform.localRotation = Quaternion.Euler(heightChange * verticalTiltAmount, 0f, rotationSpeed.y * horisontalTiltAmount);
-        previousRotation = currentRotation;
-        previousHeight = currentHeight;
-    }
+		previousRotation = currentRotation;
+	}
 }
