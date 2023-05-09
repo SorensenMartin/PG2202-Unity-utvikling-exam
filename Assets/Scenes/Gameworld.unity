@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You are the pilot of the deliveryship "The Desert Falcon". The objective
+  m_text: You are the pilot of the deliveryship "The Desert Rider". The objective
     of the game is to visit citys, take quests, find and deliver packages, all while
     avoiding dangerous space pirates. Upgrade your ship to make as much money as
     posible before you reach 0 health or fuel. How much money can you make?

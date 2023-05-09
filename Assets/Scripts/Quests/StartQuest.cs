@@ -80,7 +80,7 @@ public class StartQuest : MonoBehaviour
 				" As a token of our gratitude, we would like to offer you 1000 gold." +
 				" You can always come back here to deliver scrap and packages for a small coin purse." +
 				" We're always in need of resources to sustain our city. There should be alot of lost packages" +
-				"scatterd around, and you seem to be resourcefull enough to locate a few. " +
+				" scatterd around, and you seem to be resourcefull enough to locate a few. " +
 				"If your looking for some upgrades, see if you can find Scorched Skies " +
 				"Shipwork in one of the lonley mountains north of here, there is usually a" +
 				" ship or two flying above it looking for some repairs!" +
