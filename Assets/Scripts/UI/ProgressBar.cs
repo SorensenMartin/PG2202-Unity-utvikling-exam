@@ -22,8 +22,6 @@ public class ProgressBar : MonoBehaviour
 	public TextMeshProUGUI FuelTxt;
 	public TextMeshProUGUI MoneyTxt;
 
-
-
 	// Start is called before the first frame update
 	void Start()
     {
