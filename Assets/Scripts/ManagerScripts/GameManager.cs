@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
 			case GameState.GameOver:
 				Spaceship.SetActive(false);
 				EndScreen.SetActive(true);
-				Turrets.SetActive(false);
 				UIOverlay.SetActive(false);
 				break;
 		}
@@ -74,6 +73,7 @@ public class GameManager : MonoBehaviour
 	{
 		currentState = GameState.GameOver;
 		Cursor.visible = true;
+		Turrets.SetActive(false);
 	}
 	
 	public void QuitGame()
