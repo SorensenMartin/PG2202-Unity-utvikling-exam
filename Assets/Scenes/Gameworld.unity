@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17714404, g: 0.13584995, b: 0.22454955, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.17714891, g: 0.1358557, b: 0.2245579, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -44650,7 +44650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931124217603817238, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1337456664263621787, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: m_IsTrigger
@@ -44710,7 +44710,7 @@ PrefabInstance:
       objectReference: {fileID: 519536255}
     - target: {fileID: 2251630501824894750, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: boostUpgrade
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2251630501824894750, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: PickUpPackage
@@ -44846,7 +44846,7 @@ PrefabInstance:
       objectReference: {fileID: 1159068251}
     - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: speed
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: player
@@ -44854,7 +44854,7 @@ PrefabInstance:
       objectReference: {fileID: 1788552989}
     - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: canBoost
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: EdgeTerrain
@@ -44875,6 +44875,10 @@ PrefabInstance:
     - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: boostCooldown
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
+      propertyPath: originalSpeed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8434842294157081948, guid: 1d5c731c421e5f048a2beb6abc7e5bec, type: 3}
       propertyPath: rotationSpeed

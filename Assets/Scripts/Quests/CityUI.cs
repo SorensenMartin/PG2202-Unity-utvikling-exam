@@ -53,8 +53,8 @@ public class CityUI : MonoBehaviour
 	{
 
 		if (player.money >= 50)
-		{			
-			if (player.health < 10)
+		{
+			if (player.health < player.maxHealth)
 			{
 				player.health += 1;
 				player.money -= 50;

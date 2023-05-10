@@ -136,5 +136,18 @@ public class SpaceshipController : MonoBehaviour
 			speed = originalSpeed;
 			StartCoroutine(BoostCooldownCoroutine());			
 		}
-	}         
+	}
+
+	public void Reset()
+	{
+		// Reset the speed of the spaceship.
+		speed = originalSpeed;
+
+		// Reset the boost state
+		canBoost = true;
+
+		// Reset the particle system
+		afterBurner1.startSize = new ParticleSystem.MinMaxCurve(0.3f, 0.4f);
+		afterBurner2.startSize = new ParticleSystem.MinMaxCurve(0.3f, 0.4f);
+	}
 }

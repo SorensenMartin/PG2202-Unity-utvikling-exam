@@ -72,6 +72,9 @@ public class GameManager : MonoBehaviour
 		UIOverlay.SetActive(true);
 		Quests.SetActive(true);
 		Cursor.visible = false;
+		
+		SpaceshipController spaceshipController = Spaceship.GetComponent<SpaceshipController>();		
+		spaceshipController.Reset();
 	}	
 
 	public void EndGame()
